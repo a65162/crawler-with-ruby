@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
+require 'pry'
 
 
 # books = Nokogiri::HTML(open('https://blog.hellosanta.com.tw/css_research'))
@@ -8,11 +9,25 @@ require 'open-uri'
 #   puts link.content
 # end
 
-@increment = 1;
-@data = [];
+@pager = 0;
+@page = [];
 
-def ajax_url(url,currentpage) 
-    books = Nokogiri::HTML(open(url+'?page='+currentpage))
+def ajax_url(url,pager) 
+    @HTML = open("#{url}?page=#{pager}").read;
+    @book = Nokogiri::HTML(@HTML);
 end
+
 # '{}?page={currentpage}'
-ajax_url('https://blog.hellosanta.com.tw/css_research',@increment);
+ajax_url('https://blog.hellosanta.com.tw/css_research',@pager);
+
+@lis = @book.css('.view-css-research .view-content ul li');
+
+if @lis
+    puts 'asdas'
+end
+# @li.each do |li|
+#     @title = li.css('.views-field-title a').text
+#  end
+
+ binding.pry 
+#  open("https://blog.hellosanta.com.tw/css_research?page=1").read;
