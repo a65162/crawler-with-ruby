@@ -1,3 +1,5 @@
 source 'https://rubygems.org'
 gem 'pry'
-gem 'watir-webdriver'
+gem 'json'
+gem 'openuri'
+gem 'nokogiri'
