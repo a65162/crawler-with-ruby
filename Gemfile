@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
 gem 'pry'
 gem 'json'
-gem 'openuri'
+gem 'openurl'
 gem 'nokogiri'
